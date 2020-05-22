@@ -50,4 +50,9 @@ public class Cardholder extends LibraryItem {
             System.out.println("You are not a member. Would you like to sign-up?");
         }
     }
+
+    private OverdueList<Book> overdueBooks;
+
+    private OverdueList<Periodical> overduePeriodicals;
+
 }

@@ -7,10 +7,12 @@ public class LibraryItem implements Reservable, Loanable {
     private BookCondition condition;
     public Author author = new Author();
     String firstName = author.getFirstName(), lastName = author.getLastName();
+    public PublishingCompany publishingCompany = new PublishingCompany();
 
     // constructor
-    public LibraryItem(int publishYear, String title, String author, String genre, String ageGroup, boolean isAvailable,
-            boolean isFactual2, BookCondition condition, String firstName, String lastName) {
+    public LibraryItem(int publishYear, String title, Author author, String genre, String ageGroup, boolean isAvailable,
+            boolean isFactual2, BookCondition condition, String firstName, String lastName,
+            PublishingCompany publishingCompany) {
         this.publishYear = publishYear;
         this.title = title;
         // this.author = author;
@@ -21,6 +23,7 @@ public class LibraryItem implements Reservable, Loanable {
         this.condition = condition;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.publishingCompany = publishingCompany;
     }
 
     // getters
@@ -104,19 +107,16 @@ public class LibraryItem implements Reservable, Loanable {
         }
     }
 
-    /*
-     * public LibraryItem(String firstN, String lastN) { firstN = firstN(); lastN =
-     * lastN(); }
-     * 
-     * public String firstN() { return Author.getFirstName(); }
-     * 
-     * public String lastN() { return Author.getLastName(); }
-     */
+    public LibraryItem(int publishYear2, String title2, String author2, String genre2, String ageGroup2,
+            boolean isAvailable2, boolean isFactual22, BookCondition condition2, String authorFirstName,
+            String authorLastName) {
+    }
+
     @Override // Annotation telling us and compiler that we are Overriding previously defined
               // behavior
     public String toString() {
-        return this.getTitle() + " by " + author.getFirstName() + author.getLastName() + " published "
-                + this.getPublishYear();
+        return this.getTitle() + " by " + author.getFirstName() + author.getLastName() + " published on "
+                + this.getPublishYear() + " by " + publishingCompany.getPublishingCompany();
     }
 
     @Override
@@ -143,4 +143,25 @@ public class LibraryItem implements Reservable, Loanable {
     public int getMaxReservePerYear() {
         return 1000;
     }
+
+    @Override
+    public void lateFee(Charges fee) {
+
+        switch (fee) {
+            case DAILY:
+                System.out.println("Late Fee: $2");
+                break;
+            case WEEKLY:
+                System.out.println("Late Fee: $10");
+                break;
+            case BIWEEKLY:
+                System.out.println("Late Fee: $20");
+                break;
+            case MONTHLY:
+                System.out.println("Late Fee: $50");
+            default:
+                break;
+        }
+    }
+
 }

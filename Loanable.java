@@ -4,4 +4,5 @@ interface Loanable {
 
     int getMaximumLoanDays();
 
+    void lateFee(Charges fee);
 }
