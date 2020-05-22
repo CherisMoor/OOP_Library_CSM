@@ -1,15 +1,25 @@
-package LibraryManagement;
 
 public class Periodical extends LibraryItem {
+
     public Periodical(int publishYear, String title, String author, String genre, String ageGroup, boolean isAvailable,
-            boolean isFactual) {
-        super(publishYear, title, author, genre, ageGroup, isAvailable, isFactual);
+            boolean isFactual2, BookCondition condition, String authorFirstName, String authorLastName) {
+        super(publishYear, title, author, genre, ageGroup, isAvailable, isFactual2, condition, authorFirstName,
+                authorLastName);
     }
 
     private boolean hasColorImg;
+    private int issueNum;
+
+    public int getIssueNum() {
+        return issueNum;
+    }
 
     public boolean getColor() {
         return hasColorImg;
+    }
+
+    public void setIssueNum(int issueNum) {
+        this.issueNum = issueNum;
     }
 
     public void setColor(boolean hasColorImg) {
@@ -22,5 +32,28 @@ public class Periodical extends LibraryItem {
         } else {
             System.out.println("A newspaper");
         }
+    }
+
+    public void LibraryItem(int issueNum) {
+        if (issueNum > 0) {
+            System.out.println("You have issue number: " + issueNum);
+        } else {
+            System.out.println("That is an invalid issue Number");
+        }
+    }
+
+    @Override
+    public boolean isReservable() {
+        return true;
+    }
+
+    @Override
+    public int getReserveTerm() {
+        return 5;
+    }
+
+    @Override
+    public int getMaxReservePerYear() {
+        return 100;
     }
 }

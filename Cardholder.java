@@ -1,15 +1,42 @@
-package LibraryManagement;
 
 public class Cardholder extends LibraryItem {
-    private boolean isCardholder;
-
     public Cardholder(int publishYear, String title, String author, String genre, String ageGroup, boolean isAvailable,
-            boolean isFactual) {
-        super(publishYear, title, author, genre, ageGroup, isAvailable, isFactual);
+            boolean isFactual2, BookCondition condition, String authorFirstName, String authorLastName) {
+        super(publishYear, title, author, genre, ageGroup, isAvailable, isFactual2, condition, authorFirstName,
+                authorLastName);
+    }
+
+    private boolean isCardholder;
+    private String cardholderName;
+    private boolean canCheckout;
+    private String dateJoined;
+
+    public String getCardholderName() {
+        return cardholderName;
+    }
+
+    public boolean getCheckoutStatus() {
+        return canCheckout;
+    }
+
+    public String getDateJoined() {
+        return dateJoined;
     }
 
     public boolean getCardholder() {
         return isCardholder;
+    }
+
+    public void setCardholderName(String cardholderName) {
+        this.cardholderName = cardholderName;
+    }
+
+    public void setCheckoutStatus(boolean canCheckout) {
+        this.canCheckout = canCheckout;
+    }
+
+    public void setDateJoined(String dateJoined) {
+        this.dateJoined = dateJoined;
     }
 
     public void setCardholder(boolean isCardholder) {
