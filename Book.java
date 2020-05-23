@@ -2,15 +2,34 @@
 public class Book extends LibraryItem {
 
     public Book(int publishYear, String title, String author, String genre, String ageGroup, boolean isAvailable,
-            boolean isFactual2, BookCondition condition, String authorFirstName, String authorLastName) {
-        super(publishYear, title, author, genre, ageGroup, isAvailable, isFactual2, condition, authorFirstName,
-                authorLastName);
+            BookCondition condition, String authorFirstName, String authorLastName) {
+        super(publishYear, title, author, genre, ageGroup, isAvailable, condition, authorFirstName, authorLastName);
+    }
+
+    public Book() {
+
+    }
+
+    public Book(String title, String author, BookCondition condition) {
+        super(title, author, condition);
     }
 
     private int numOfPages;
 
     public int getNumofPages() {
         return numOfPages;
+    }
+
+    public void setBookCondition(BookCondition condition) {
+        this.bookCondition = condition;
+    }
+
+    public void setPublishCompany(PublishingCompany company) {
+        this.publishingCompany = company;
+    }
+
+    public void setAuthor(Author author) {
+        this.author = author;
     }
 
     public void setNumofPages(int numOfPages) {
@@ -41,5 +60,4 @@ public class Book extends LibraryItem {
     public boolean isLoanable() {
         return true;
     }
-
 }

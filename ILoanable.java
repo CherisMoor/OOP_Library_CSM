@@ -1,4 +1,4 @@
-interface Loanable {
+interface ILoanable {
 
     boolean isLoanable();
 

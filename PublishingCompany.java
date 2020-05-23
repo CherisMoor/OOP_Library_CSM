@@ -13,6 +13,6 @@ public class PublishingCompany {
     }
 
     public void setPublishingCompany(String PublishingCompany) {
-        this.publishCompany = publishCompany;
+        this.publishCompany = PublishingCompany;
     }
 }

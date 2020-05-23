@@ -4,6 +4,11 @@ public class Author {
     private String author = firstName + lastName;
 
     Author() {
+
+    }
+
+    Author(String author) {
+        this.author = author;
     }
 
     Author(String firstName, String lastName) {
